@@ -8,7 +8,7 @@
       "python": {
         "pathMappings": [
           {
-            "localRoot": "${workspaceFolder}",
+            "localRoot": "${workspaceFolder}/rest-api",
             "remoteRoot": "/app"
           }
         ],

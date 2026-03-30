@@ -6,8 +6,8 @@
       "platform": "python",
       "dockerBuild": {
         "tag": "isn20261:latest",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
-        "context": "${workspaceFolder}",
+        "dockerfile": "${workspaceFolder}/rest-api/Dockerfile",
+        "context": "${workspaceFolder}/rest-api",
         "pull": true
       }
     },
