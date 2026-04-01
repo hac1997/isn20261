@@ -65,7 +65,7 @@ flowchart TD
         end
 
         b[Broker]
-        IA[I.A.]
+        ch[Chaves]
 
         subgraph P[Processadores]
             p1[Processador 1]
@@ -74,13 +74,15 @@ flowchart TD
             pn[Processador N]
         end
 
-        ch[Chaves]
+        l[Log]
 
         subgraph BDs[Bancos de Dados]
             ca[Cache]
             sql[SQL]
             tsdb[TSDB]
         end
+        
+        IA[I.A.]
     end
 
     U --> F
@@ -91,5 +93,7 @@ flowchart TD
     P --> ch
     P --> ca
     P --> sql
-    P --> tsdb
+
+    l --> b
+    l --> tsdb
 ```
