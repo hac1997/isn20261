@@ -1,0 +1,11 @@
+name: isn20261
+description: A Python program to deploy a serverless application on AWS
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+    toolchain: uv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: serverless-aws-python
