@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Local SAM template for the function handler
+
+Resources:
+  HandlerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: function
+      Handler: handler.handler
+      Runtime: python3.13
+      Timeout: 10
+      MemorySize: 128
