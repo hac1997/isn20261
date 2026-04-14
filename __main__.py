@@ -24,11 +24,21 @@ fn = aws.lambda_.Function("fn",
     role=role.arn,
     code=pulumi.FileArchive("./function"))
 
+# A Lambda do LOgin
+
+login_fn = aws.lambda_.Function("login-fn",
+    runtime="python3.9",
+    handler="login.loginHandler.lambda_handler",
+    role=role.arn,
+    code=pulumi.FileArchive("./function")
+)
+
 # A REST API to route requests to HTML content and the Lambda function
 api = apigateway.RestAPI("api",
   routes=[
     apigateway.RouteArgs(path="/", local_path="www"),
-    apigateway.RouteArgs(path="/date", method=apigateway.Method.GET, event_handler=fn)
+    apigateway.RouteArgs(path="/date", method=apigateway.Method.GET, event_handler=fn),
+    apigateway.RouteArgs(path="/login",method=apigateway.Method.POST,event_handler=login_fn)
   ])
 
 # The URL at which the REST API will be served.
